@@ -50,4 +50,3 @@ David Osipov (personal@david-osipov.vision)
 ## Acknowledgements
 
 Thanks to the gmpy2 developers for creating this powerful library!
-```
