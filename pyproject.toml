@@ -29,7 +29,7 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3 :: Only",
     "Topic :: Software Development :: Libraries :: Python Modules",
-    "Topic :: Software Development :: Typing",
+    "Typing :: Stubs Only",
 ]
 # No dependencies for a stub-only package
 dependencies = []
