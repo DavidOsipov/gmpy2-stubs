@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gmpy2-stubs"
+version = "2.2.1"
+description = "Type stubs for gmpy2 (version 2.2.1)"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+  { name = "David Osipov", email = "personal@david-osipov.vision" },
+]
+maintainers = [
+  { name = "David Osipov", email = "personal@david-osipov.vision" },
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Typing :: Stubs Only",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Typing",
+]
+# No dependencies for a stub-only package
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/DavidOsipov/gmpy2-stubs"
+Issues = "https://github.com/DavidOsipov/gmpy2-stubs/issues"
+Source = "https://github.com/DavidOsipov/gmpy2-stubs"
+"Security Advisories" = "https://github.com/DavidOsipov/gmpy2-stubs/security/advisories"
+"Security Policy" = "https://github.com/DavidOsipov/gmpy2-stubs/security/policy"
+"Personal Website" = "https://david-osipov.vision"
+"LinkedIn" = "https://www.linkedin.com/in/david-osipov"
+"GitHub Profile" = "https://github.com/DavidOsipov"
+"ISNI" = "https://isni.org/isni/000000051802960X"
+"ORCID" = "https://orcid.org/0009-0005-2713-9242"
+"Telegram" = "https://telegram.me/david_osipov"
+"Signal" =  "https://signal.me/#eu/d68l1UjrWlGVRzbfkVM1bvQMNqCqiae9GM86P_af8ZK2o5E5YSNKbL4MyM9y-2WH"
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"gmpy2" = ["*.pyi", "py.typed"]
+
+[tool.mypy]
+files = ["src/gmpy2/*.pyi"]
+strict = true
+warn_unused_configs = true
+show_error_codes = true
+ignore_missing_imports = true
+
+[tool.pyright]
+pythonVersion = "3.7"
+reportMissingImports = true
+reportMissingModuleSource = false
