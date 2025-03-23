@@ -8,6 +8,7 @@ version = "2.2.1.0"
 description = "Type stubs for gmpy2"
 readme = "README.md"
 requires-python = ">=3.7"
+keywords = ['gmpy2', 'gmpy2-stubs', 'stubs', 'type hints']
 license = {text = "MIT"}
 authors = [
   { name = "David Osipov", email = "personal@david-osipov.vision" },
