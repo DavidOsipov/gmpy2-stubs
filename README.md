@@ -1,7 +1,6 @@
 # gmpy2-stubs
 
 [![PyPI version](https://badge.fury.io/py/gmpy2-stubs.svg)](https://badge.fury.io/py/gmpy2-stubs)
-[![TestPyPI version](https://badge.fury.io/py/gmpy2-stubs.svg?label=testpypi+version)](https://test.pypi.org/project/gmpy2-stubs/)
 
 Type stubs for the [gmpy2](https://pypi.org/project/gmpy2/) library (version 2.2.1).
 
@@ -38,9 +37,15 @@ Contributions and improvements to these stubs are very welcome!
 
 These stubs are licensed under the MIT License (see the `LICENSE` file).  gmpy2 itself is licensed under the LGPLv3+ license.
 
-## Author
+## Author:
 
-[David Osipov] (<personal@david-osipov.vision>)
+David Osipov (personal@david-osipov.vision)
+*   ISNI: [0000 0005 1802 960X](https://isni.org/isni/000000051802960X)
+*   ORCID: [0009-0005-2713-9242](https://orcid.org/0009-0005-2713-9242)
+*   PGP key: https://openpgpkey.david-osipov.vision/.well-known/openpgpkey/david-osipov.vision/D3FC4983E500AC3F7F136EB80E55C4A47454E82E.asc
+*   PGP fingerprint: D3FC 4983 E500 AC3F 7F13 6EB8 0E55 C4A4 7454 E82E
+*   Website: https://david-osipov.vision
+*   LinkedIn: https://www.linkedin.com/in/david-osipov/
 
 ## Acknowledgements
 
