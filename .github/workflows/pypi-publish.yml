@@ -4,7 +4,7 @@ name: Publish Python 🐍 distributions 📦 to PyPI and TestPyPI
 on:
   push:
     tags:
-      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
+      - "*" # Push events to matching v*, i.e. v1.0, v20.15.10
   # Allows to run this workflow manually from the Actions tab on GitHub UI
   workflow_dispatch:
 
