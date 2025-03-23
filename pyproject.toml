@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = ["setuptools>=61.0", "wheel>=0.37.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -69,3 +69,16 @@ ignore_missing_imports = true
 pythonVersion = "3.7"
 reportMissingImports = true
 reportMissingModuleSource = false
+
+[tool.black]
+line-length = 100
+target-version = ["py37", "py38", "py39", "py310", "py311", "py312", "py313"]
+
+[tool.ruff]
+target-version = "py37"
+line-length = 100
+select = ["E", "F", "I"]
+
+[tool.typing]
+# Some static type checking tools use this section
+use_pep563 = true  # Using PEP 563 postponed annotation style
