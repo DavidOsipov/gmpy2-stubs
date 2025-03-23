@@ -35,7 +35,6 @@ jobs:
         hatch build
 
     - name: Publish distribution 📦 to PyPI
-      if: startsWith(github.ref, 'refs/tags/')
       uses: pypa/gh-action-pypi-publish@db8f07d3871a0a180efa06b95d467625c19d5d5f
       with:
         print-hash: true
