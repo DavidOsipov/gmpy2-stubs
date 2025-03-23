@@ -1,0 +1,33 @@
+name: Sign Release Artifacts
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.7'
+
+      - name: Install dependencies (including your package in editable mode)
+        run: |
+          python -m pip install .
+          python -m pip install --upgrade pip
+
+      - name: Sign Script with Sigstore
+        uses: sigstore/gh-action-sigstore-python@300d3393a8effd58cc9e99f701c7c7238fb517d2
+        with:
+          inputs: __init__.pyi README.md SECURITY.md LICENSE pyproject.toml
+          release-signing-artifacts: true
