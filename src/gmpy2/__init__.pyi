@@ -786,7 +786,13 @@ class context:
         """Computes the natural logarithm of the absolute value of gamma(x)."""
         ...
 
-    def log(self, x: Union[int, float, mpz, mpfr, mpq, mpc], base: Optional[Union[int, float, mpz, mpfr]] = None) -> Union[mpfr, mpc]:
+    @overload
+    def log(self, x: Union[int, float, "mpz", "mpfr", "mpq", "mpc"]) -> Union["mpfr", "mpc"]:
+        """Computes the natural logarithm of x."""
+        ...
+
+    @overload
+    def log(self, x: Union[int, float, "mpz", "mpfr", "mpq"], base: Union[int, float, "mpz", "mpfr"]) -> "mpfr":
         """Computes the logarithm of x to the specified base.
 
         If base is None, returns the natural logarithm.
@@ -1611,10 +1617,6 @@ def log(x: Union[int, float, "mpz", "mpfr", "mpq", "mpc"]) -> Union["mpfr", "mpc
 
 @overload
 def log(x: Union[int, float, "mpz", "mpfr", "mpq"], base: Union[int, float, "mpz", "mpfr"]) -> "mpfr":
-    """Computes the logarithm of x to the specified base."""
-    ...
-
-def log(x: Union[int, float, "mpz", "mpfr", "mpq", "mpc"], base: Optional[Union[int, float, "mpz", "mpfr"]] = None) -> Union["mpfr", "mpc"]:
     """Computes the logarithm of x to the specified base.
 
     If base is None, returns the natural logarithm.
