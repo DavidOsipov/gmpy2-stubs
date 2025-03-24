@@ -34,8 +34,8 @@ jobs:
       run: |
         python -c "import sys; print(f'Python {sys.version}')"
         hatch build
-        # Add any tests you want to run here
-        # For example: pip install -e . && pytest
+      # Add any tests you want to run here
+      # For example: pip install -e . && pytest
 
   build-n-publish:
     name: pypi-publish

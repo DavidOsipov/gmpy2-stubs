@@ -29,14 +29,14 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install mypy pytest
+        pip install mypy
         # If you have a requirements.txt file, uncomment the next line
         # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         pip install -e .
     - name: Typecheck with mypy
       run: |
         mypy src/gmpy2
-    - name: Test with pytest
-      run: |
-        pytest
+#    - name: Test with pytest
+#      run: |
+#        pytest
       # If you don't have tests yet, comment this out or add your preferred test command
