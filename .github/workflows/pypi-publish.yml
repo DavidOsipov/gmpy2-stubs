@@ -9,27 +9,43 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    name: Test with Python ${{ matrix.python-version }}
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
-
+  test-python37:
+    name: Test with Python 3.7
+    runs-on: ubuntu-20.04  # Specifically use Ubuntu 20.04 for Python 3.7
     steps:
     - uses: actions/checkout@v4
-
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python 3.7
       uses: actions/setup-python@v5
       with:
-        python-version: ${{ matrix.python-version }}
-
+        python-version: "3.7"
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install hatch
-    
+    - name: Build and test
+      run: |
+        python -c "import sys; print(f'Python {sys.version}')"
+        hatch build
+        # Add any tests you want to run here
+        # For example: pip install -e . && pytest
+
+  test-newer-python:
+    name: Test with Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest  # Use latest Ubuntu for Python 3.8+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install hatch
     - name: Build and test
       run: |
         python -c "import sys; print(f'Python {sys.version}')"
@@ -39,30 +55,25 @@ jobs:
 
   build-n-publish:
     name: pypi-publish
-    needs: test
+    needs: [test-python37, test-newer-python]
     runs-on: ubuntu-latest
     environment:
       name: pypi
     permissions:
       id-token: write
-
     steps:
     - uses: actions/checkout@v4
-
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: "3.12"  # Use stable Python for publishing
-
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install hatch
-    
     - name: Build a binary wheel and a source tarball
       run: |
         hatch build
-
     - name: Publish distribution 📦 to PyPI
       uses: pypa/gh-action-pypi-publish@db8f07d3871a0a180efa06b95d467625c19d5d5f
       with:
