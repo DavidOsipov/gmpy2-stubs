@@ -58,7 +58,7 @@ Developer: David Osipov
 """
 
 # /// script
-# requires-python = ">=3.7"
+# requires-python = ">=3.8"
 # ///
 # pyright: reportDeprecated=false
 
