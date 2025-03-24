@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gmpy2-stubs"
-version = "2.2.1.0"
-description = "Type stubs for gmpy2"
+version = "2.2.1.1"
+description = "Type stubs (PEP 561) for gmpy2 2.2.1: GMP, MPFR, and MPC support."
 readme = "README.md"
 requires-python = ">=3.7"
-keywords = ['gmpy2', 'gmpy2-stubs', 'stubs', 'type hints']
+keywords = ['gmpy2', 'stubs', 'type hints', 'typing', 'mypy', 'pyright', 'static analysis']
 license = {text = "MIT"}
 authors = [
   { name = "David Osipov", email = "personal@david-osipov.vision" },
@@ -18,10 +18,8 @@ maintainers = [
 ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
-    "Typing :: Stubs Only",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
@@ -29,9 +27,9 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3 :: Only",
     "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Typing",
     "Typing :: Stubs Only",
 ]
 # No dependencies for a stub-only package
@@ -41,8 +39,7 @@ dependencies = []
 Homepage = "https://github.com/DavidOsipov/gmpy2-stubs"
 Issues = "https://github.com/DavidOsipov/gmpy2-stubs/issues"
 Source = "https://github.com/DavidOsipov/gmpy2-stubs"
-"Security Advisories" = "https://github.com/DavidOsipov/gmpy2-stubs/security/advisories"
-"Security Policy" = "https://github.com/DavidOsipov/gmpy2-stubs/security/policy"
+"Security Policy" = "https://github.com/DavidOsipov/gmpy2-stubs/blob/main/SECURITY.md"
 "Personal Website" = "https://david-osipov.vision"
 "LinkedIn" = "https://www.linkedin.com/in/david-osipov"
 "GitHub Profile" = "https://github.com/DavidOsipov"
@@ -59,25 +56,32 @@ where = ["src"]
 "gmpy2" = ["*.pyi", "py.typed"]
 
 [tool.mypy]
+# Optional: Configure mypy for checking the *stubs* themselves.
 files = ["src/gmpy2/*.pyi"]
 strict = true
 warn_unused_configs = true
 show_error_codes = true
-ignore_missing_imports = true
+ignore_missing_imports = true  # Needed because gmpy2 is a C extension
 
 [tool.pyright]
 pythonVersion = "3.7"
-reportMissingImports = true
+reportMissingImports = false
 reportMissingModuleSource = false
+reportDeprecated = false
+reportUnusedImports = false
 
 [tool.black]
-line-length = 100
-target-version = ["py37", "py38", "py39", "py310", "py311", "py312", "py313"]
+line-length = 140
+target-version = ["py37", "py38", "py39", "py310", "py311", "py312"]
 
 [tool.ruff]
+# Always generate Python 3.7-compatible code.
 target-version = "py37"
-line-length = 100
-select = ["E", "F", "I"]
+line-length = 140
+select = ["E", "F", "I", "B", "C4"]
+
+[tool.ruff.lint]
+fixable = ["ALL"]
 
 [tool.typing]
 # Some static type checking tools use this section

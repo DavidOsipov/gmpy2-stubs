@@ -1,3 +1,7 @@
 {
-    "python.languageServer": "None"
+    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.pythonVersion": "3.7",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportDeprecated": "none"
+    }
 }
