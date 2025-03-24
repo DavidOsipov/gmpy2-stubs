@@ -786,8 +786,21 @@ class context:
         """Computes the natural logarithm of the absolute value of gamma(x)."""
         ...
 
-    def log(self, x: Union[int, float, mpz, mpfr, mpq, mpc]) -> Union[mpfr, mpc]:
-        """Computes the natural logarithm of x."""
+    def log(self, x: Union[int, float, mpz, mpfr, mpq, mpc], base: Optional[Union[int, float, mpz, mpfr]] = None) -> Union[mpfr, mpc]:
+        """Computes the logarithm of x to the specified base.
+
+        If base is None, returns the natural logarithm.
+
+        Args:
+            x: The value to compute logarithm for (must be > 0)
+            base: The logarithm base (must be > 0 and != 1)
+
+        Returns:
+            The logarithm as an mpfr object
+
+        Raises:
+            ValueError: If x <= 0 or base <= 0 or base == 1
+        """
         ...
 
     def log10(self, x: Union[int, float, mpz, mpfr, mpq, mpc]) -> Union[mpfr, mpc]:
@@ -1306,7 +1319,7 @@ def lucasu(p: Union[int, "mpz"], q: Union[int, "mpz"], k: Union[int, "mpz"]) -> 
     """Return the k-th element of the Lucas U sequence defined by p,q."""
     ...
 
-def lucasu_mod(p: Union[int, "mpz"], q: Union[int, "mpz"], k: Union[int, "mpz"], n: Union[int, "mpz"]) -> "mpz":  # type: ignore
+def lucasu_mod(p: Union[int, "mpz"], q: Union[int, "mpz"], k: Union[int, "mpz"], n: Union[int, "mpz"]) -> "mpz":
     """Return the k-th element of the Lucas U sequence defined by p,q (mod n)."""
     ...
 
@@ -1592,9 +1605,15 @@ def const_catalan(precision: int = 0) -> "mpfr":
     ...
 
 @overload
-def log(x: Union[int, float, "mpz", "mpfr", "mpq", "mpc"]) -> Union["mpfr", "mpc"]: ...
+def log(x: Union[int, float, "mpz", "mpfr", "mpq", "mpc"]) -> Union["mpfr", "mpc"]:
+    """Computes the natural logarithm of x."""
+    ...
+
 @overload
-def log(x: Union[int, float, "mpz", "mpfr", "mpq"], base: Union[int, float, "mpz", "mpfr"]) -> "mpfr": ...
+def log(x: Union[int, float, "mpz", "mpfr", "mpq"], base: Union[int, float, "mpz", "mpfr"]) -> "mpfr":
+    """Computes the logarithm of x to the specified base."""
+    ...
+
 def log(x: Union[int, float, "mpz", "mpfr", "mpq", "mpc"], base: Optional[Union[int, float, "mpz", "mpfr"]] = None) -> Union["mpfr", "mpc"]:
     """Computes the logarithm of x to the specified base.
 
