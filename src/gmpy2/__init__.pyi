@@ -1477,6 +1477,38 @@ def square(x: Union[int, "mpz", "mpfr", "mpq", "mpc"]) -> Union["mpz", "mpfr", "
     """
     ...
 
+def iroot(x: Union[int, "mpz"], n: Union[int, "mpz"]) -> Tuple["mpz", bool]:
+    """Computes the integer nth root of x (floor of x^(1/n)).
+    
+    Args:
+        x: The value to compute the nth root for
+        n: The root degree
+
+    Returns:
+        A tuple (s, exact) where s is the integer nth root and exact is True if
+        x is a perfect nth power, False otherwise
+
+    Raises:
+        ValueError: If x is negative or n is non-positive
+    """
+    ...
+
+def iroot_rem(x: Union[int, "mpz"], n: Union[int, "mpz"]) -> Tuple["mpz", "mpz"]:
+    """Computes the integer nth root and remainder of x.
+
+    Args:
+        x: The value to compute the nth root for
+        n: The root degree
+
+    Returns:
+        A tuple (s, r) where s is the integer nth root and r is the remainder
+        such that x = s**n + r
+
+    Raises:
+        ValueError: If x is negative or n is non-positive
+    """
+    ...
+
 # Random number generators
 def random_state(seed: Optional[Union[int, str, bytes, Any]] = None) -> Any:
     """Creates a random state object for use with the random number generators.
@@ -2189,6 +2221,8 @@ __all__ = [
     "isqrt",
     "isqrt_rem",
     "square",
+    "iroot",
+    "iroot_rem",
     # Number theoretic functions
     "powmod",
     "invert",
