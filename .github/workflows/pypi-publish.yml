@@ -56,7 +56,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install hatch
     - name: Generate changelog
-      uses: rhysd/changelog-from-release/action@ac0eec2f73a0c0ca0cb4ac3f1eea121105e07385
+      uses: rhysd/changelog-from-release/action@589c79eb291056dc380aa43ccfb1f45eebf8c4c3
       with:
         file: CHANGELOG.md
         github_token: ${{ secrets.GITHUB_TOKEN }}
