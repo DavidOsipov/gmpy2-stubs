@@ -49,7 +49,7 @@ jobs:
         uses: rhysd/changelog-from-release/action@589c79eb291056dc380aa43ccfb1f45eebf8c4c3
         with:
           file: CHANGELOG.md
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.RELEASE_NOTES_TOKEN }}
           pull_request: true
 
   build-n-publish:
