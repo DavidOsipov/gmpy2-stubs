@@ -43,6 +43,7 @@ dependencies = []
 Homepage = "https://github.com/DavidOsipov/gmpy2-stubs"
 Issues = "https://github.com/DavidOsipov/gmpy2-stubs/issues"
 Source = "https://github.com/DavidOsipov/gmpy2-stubs"
+Changelog = "https://github.com/DavidOsipov/gmpy2-stubs/blob/main/CHANGELOG.md"
 "Security Policy" = "https://github.com/DavidOsipov/gmpy2-stubs/blob/main/SECURITY.md"
 "Personal Website" = "https://david-osipov.vision"
 "LinkedIn" = "https://www.linkedin.com/in/david-osipov"
