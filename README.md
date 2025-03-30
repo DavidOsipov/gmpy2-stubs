@@ -1,11 +1,22 @@
 # gmpy2-stubs
 
 [![PyPI version](https://badge.fury.io/py/gmpy2-stubs.svg?icon=si%3Apython&icon_color=%23ffffff)](https://badge.fury.io/py/gmpy2-stubs)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/gmpy2-stubs)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 Type stubs for the [gmpy2](https://pypi.org/project/gmpy2/) library (version 2.2.1).
 
 gmpy2 is a C-coded Python extension module that supports multiple-precision arithmetic. It provides access to the GMP (GNU Multiple Precision Arithmetic Library), MPFR (Multiple-Precision Floating-Point Reliable Library), and MPC (Multiple-Precision Complex Library) libraries. gmpy2 itself does *not* include type hints. This package provides them.
+
+## IMPORTANT CAVEAT: gmpy2 Runtime Behavior
+
+**Please be aware:** The underlying `gmpy2` library, which these stubs provide type hints for, **can crash the Python interpreter in case of memory allocation failure.** This is due to the memory management behavior of the wrapped GMP library.
+
+To mitigate this risk when using `gmpy2` in your code:
+*   **Estimate the potential size of calculation results.**
+*   **Prevent or handle calculations that could exhaust available system memory.**
+
+Failure to account for this may lead to unexpected program termination.
 
 ## Installation
 
