@@ -33,10 +33,4 @@ jobs:
       - name: Sign Script with Sigstore
         uses: sigstore/gh-action-sigstore-python@300d3393a8effd58cc9e99f701c7c7238fb517d2
         with:
-          inputs: | 
-            ./src/gmpy2/__init__.pyi
-            README.md
-            SECURITY.md
-            LICENSE
-            pyproject.toml
           release-signing-artifacts: true
