@@ -27,7 +27,7 @@ pip install gmpy2-stubs
 or, if you'd like to use a specific version:
 
 ```bash
-pip install gmpy2-stubs==2.2.1.2
+pip install gmpy2-stubs==2.2.1.3
 ```
 
 ## Usage

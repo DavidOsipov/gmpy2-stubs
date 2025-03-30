@@ -1,7 +1,7 @@
 """
 Type stubs for gmpy2 - GNU Multiple Precision Arithmetic Library interface (version 2.2.1)
 
-Stub file version: 2.2.1.2
+Stub file version: 2.2.1.3
 
 This file provides type hints for the gmpy2 library functions. Initially it was created and used in Post-Quantum Feldman's VSS.
 
