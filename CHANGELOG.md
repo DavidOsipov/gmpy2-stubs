@@ -1,3 +1,39 @@
+<a id="2.2.1.4"></a>
+# [2.2.1.4](https://github.com/DavidOsipov/gmpy2-stubs/releases/tag/2.2.1.4) - 2025-04-08
+
+### Major Changes
+1. **Added Changelog Generation Workflow**:
+   - Added a new job `generate-changelog` in the GitHub Actions workflow to automatically generate and update `CHANGELOG.md` using the `rhysd/changelog-from-release` action.
+   - Ensured `build-n-publish` job depends on the `generate-changelog` job.
+
+2. **Updated Python Version in Configuration**:
+   - Updated the Python version in `.vscode/settings.json` and `pyproject.toml` from `3.7` to `3.8`.
+
+3. **Generated `CHANGELOG.md` File**:
+   - A new `CHANGELOG.md` file was added to maintain a history of changes for the project.
+
+4. **New Type Definitions and Improvements**:
+   - Added `@final` decorator for classes `mpz`, `mpq`, `mpfr`, `mpc`, and `xmpz`.
+   - Added several new dunder methods and positional-only markers for various methods to improve type checking accuracy.
+
+### Merged Pull Requests
+1. **[Update changelog for 2.2.1.3](https://github.com/DavidOsipov/gmpy2-stubs/pull/19)**: Automatically generated changelog for version 2.2.1.3.
+2. **[Update rhysd/changelog-from-release digest to 589c79e](https://github.com/DavidOsipov/gmpy2-stubs/pull/18)**: Updated the `rhysd/changelog-from-release` GitHub Action digest.
+3. **[Update rhysd/changelog-from-release digest to 589c79e](https://github.com/DavidOsipov/gmpy2-stubs/pull/17)**: Another update to the `rhysd/changelog-from-release` GitHub Action digest.
+4. **[Added iroot and iroot_rem functions](https://github.com/DavidOsipov/gmpy2-stubs/pull/16)**: Added type hints for `gmpy2.iroot` and `gmpy2.iroot_rem` functions.
+5. **[Update actions/setup-python digest to 8d9ed9a](https://github.com/DavidOsipov/gmpy2-stubs/pull/15)**: Updated `actions/setup-python` GitHub Action digest.
+6. **[Update actions/setup-python digest to 19e4675](https://github.com/DavidOsipov/gmpy2-stubs/pull/14)**: Another update to `actions/setup-python` GitHub Action digest.
+7. **[Update dependency python to 3.13](https://github.com/DavidOsipov/gmpy2-stubs/pull/12)**: Updated the Python dependency to version 3.13.
+8. **[Update actions/checkout digest to 85e6279](https://github.com/DavidOsipov/gmpy2-stubs/pull/10)**: Updated `actions/checkout` GitHub Action digest.
+
+### Note
+There are a total of 16 merged pull requests. The above list includes the most recent ones. To view all merged pull requests, please visit [this link](https://github.com/DavidOsipov/gmpy2-stubs/pulls?q=is%3Apr+is%3Amerged).
+
+If you need a complete list of changes or more details, please refer to the [commit comparison](https://github.com/DavidOsipov/gmpy2-stubs/compare/2.2.1.3...main) or the [pull requests page](https://github.com/DavidOsipov/gmpy2-stubs/pulls).
+
+[Changes][2.2.1.4]
+
+
 <a id="2.2.1.3"></a>
 # [2.2.1.3](https://github.com/DavidOsipov/gmpy2-stubs/releases/tag/2.2.1.3) - 2025-03-30
 
@@ -99,6 +135,7 @@ Initial release for gmpy2 version 2.2.1
 [Changes][2.2.1.0]
 
 
+[2.2.1.4]: https://github.com/DavidOsipov/gmpy2-stubs/compare/2.2.1.3...2.2.1.4
 [2.2.1.3]: https://github.com/DavidOsipov/gmpy2-stubs/compare/2.2.1.2...2.2.1.3
 [2.2.1.2]: https://github.com/DavidOsipov/gmpy2-stubs/compare/2.2.1.1...2.2.1.2
 [2.2.1.1]: https://github.com/DavidOsipov/gmpy2-stubs/compare/2.2.1.0...2.2.1.1
