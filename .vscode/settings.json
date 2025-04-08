@@ -1,6 +1,6 @@
 {
     "python.analysis.typeCheckingMode": "strict",
-    "python.analysis.pythonVersion": "3.7",
+    "python.analysis.pythonVersion": "3.8",
     "python.analysis.diagnosticSeverityOverrides": {
         "reportDeprecated": "none"
     }
