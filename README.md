@@ -2,6 +2,7 @@
 
 [![PyPI version](https://badge.fury.io/py/gmpy2-stubs.svg?icon=si%3Apython&icon_color=%23ffffff)](https://badge.fury.io/py/gmpy2-stubs)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/gmpy2-stubs)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/DavidOsipov/gmpy2-stubs/main)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 Type stubs for the [gmpy2](https://pypi.org/project/gmpy2/) library (version 2.2.1).
