@@ -55,7 +55,6 @@ jobs:
     # 6. Run stubtest
     - name: Run stubtest
       run: |
-        touch allowlist.txt
         python -m mypy.stubtest gmpy2 --allowlist allowlist.txt
 
     # Optional: Add pytest step back if/when you have tests for the stubs
