@@ -22,19 +22,14 @@ gmpy2.xmpz.__rpow__
 # 'numer' and 'denom' exist as properties on mpq/mpz/xmpz, but these
 # function-like entries likely correspond to internal accessors or
 # older/deprecated ways of access not in the current documentation.
-gmpy2.gmpy2.denom
-gmpy2.gmpy2.numer
+gmpy2.denom
+gmpy2.numer
 
 # These functions appear related to older gmpy versions or internal binary formats
 # and are not documented for current use.
-gmpy2.gmpy2.mpq_from_old_binary
-gmpy2.gmpy2.mpz_from_old_binary
+gmpy2.mpq_from_old_binary
+gmpy2.mpz_from_old_binary
 
 # These functions are not found in the 2.2.1 documentation.
-gmpy2.gmpy2.is_lessgreater
-gmpy2.gmpy2.xbit_mask
-
-# Note: The prefix 'gmpy2.gmpy2.*' might appear if the stub checker was
-# previously confused by an extra gmpy2.pyi file. Consolidating stubs
-# into __init__.pyi is the primary fix, but these are allowlisted
-# for robustness against potential checker quirks or internal symbols.
+gmpy2.is_lessgreater
+gmpy2.xbit_mask

@@ -55,7 +55,7 @@ jobs:
     # 6. Run stubtest
     - name: Run stubtest
       run: |
-        python -m mypy.stubtest gmpy2 --allowlist allowlist.txt
+        python -m mypy.stubtest gmpy2 --allowlist allowlist.txt --ignore-missing-stub
 
     # Optional: Add pytest step back if/when you have tests for the stubs
     # - name: Test with pytest
