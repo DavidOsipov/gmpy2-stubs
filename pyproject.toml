@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gmpy2-stubs"
-version = "2.2.1.4"
+version = "2.2.1.5"
 description = "Type stubs (PEP 561) for gmpy2 2.2.1: GMP, MPFR, and MPC support."
 readme = "README.md"
 requires-python = ">=3.8"
