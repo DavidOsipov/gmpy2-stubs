@@ -13,33 +13,13 @@ permissions:
   contents: read
 
 jobs:
-  test-newer-python:
-    name: Test with Python ${{ matrix.python-version }}
-    runs-on: ubuntu-latest  # Use latest Ubuntu for Python 3.8+
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
-    steps:
-    - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@8d9ed9ac5c53483de85588cdf95a591a75ab9f55
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install hatch
-    - name: Build and test
-      run: |
-        python -c "import sys; print(f'Python {sys.version}')"
-        hatch build
-      # Add any tests you want to run here
-      # For example: pip install -e . && pytest
+  verify-tests:
+    name: Run tests workflow
+    uses: ./.github/workflows/python-tests.yml
 
   generate-changelog:
     name: Generate Changelog
-    needs: [test-newer-python]
+    needs: [verify-tests]
     runs-on: ubuntu-latest
     permissions:
       contents: write  # Need write permission to update CHANGELOG.md
@@ -54,7 +34,7 @@ jobs:
 
   build-n-publish:
     name: pypi-publish
-    needs: [test-newer-python, generate-changelog]
+    needs: [verify-tests, generate-changelog]
     runs-on: ubuntu-latest
     environment:
       name: pypi
