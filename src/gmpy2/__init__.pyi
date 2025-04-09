@@ -1,5 +1,3 @@
-# /// script
-# requires-python = ">=3.8"
 # ///
 # pyright: reportDeprecated=false, reportInvalidTypeForm=false
 
@@ -81,7 +79,7 @@ RoundToZero: int = 1
 RoundUp: int = 2
 RoundDown: int = 3
 RoundAwayZero: int = 4
-Default: int = -1 # Used for context settings (e.g., imag_prec) to inherit from default
+Default: int = -1  # Used for context settings (e.g., imag_prec) to inherit from default
 
 # --- Exception types ---
 class InexactResultError(Exception): ...
@@ -211,7 +209,6 @@ class mpz:
     @overload
     def __pow__(self, other: _IntLike, mod: _IntLike) -> "mpz": ...
     # No implementation signature in stubs
-
     # __rpow__ (Stub does not include 'mod', add to allowlist if checker complains)
     @overload
     def __rpow__(self, other: Union["mpc", complex]) -> "mpc": ...
@@ -219,7 +216,6 @@ class mpz:
     def __rpow__(self, other: Union["mpfr", float, "mpq"]) -> "mpfr": ...  # type: ignore[misc] # Acceptable overlap
     # Removed redundant int overload
     # No implementation signature in stubs
-
     # --- Bitwise and Unary ---
     def __lshift__(self, other: _IntLike) -> "mpz": ...
     def __rlshift__(self, other: _IntLike) -> "mpz": ...
@@ -364,7 +360,6 @@ class mpq:
     @overload
     def __rtruediv__(self, other: _IntLike) -> "mpq": ...  # type: ignore[misc] # Acceptable overlap
     # No implementation signature in stubs
-
     # __pow__
     @overload
     def __pow__(self, other: Union["mpc", complex], mod: None = None) -> "mpc": ...
@@ -373,7 +368,6 @@ class mpq:
     @overload
     def __pow__(self, other: _IntLike, mod: None = None) -> "mpq": ...
     # No implementation signature in stubs
-
     # __rpow__ (Stub does not include 'mod', add to allowlist if checker complains)
     @overload
     def __rpow__(self, other: Union["mpc", complex]) -> "mpc": ...
@@ -382,7 +376,6 @@ class mpq:
     @overload
     def __rpow__(self, other: _IntLike) -> "mpfr": ...
     # No implementation signature in stubs
-
     # --- Unary and Other ---
     def __neg__(self) -> "mpq": ...
     def __pos__(self) -> "mpq": ...
@@ -479,21 +472,18 @@ class mpfr:
     @overload
     def __rtruediv__(self, other: _RealLike) -> "mpfr": ...
     # No implementation signature in stubs
-
     # __pow__
     @overload
     def __pow__(self, other: Union["mpc", complex], mod: None = None) -> "mpc": ...
     @overload
     def __pow__(self, other: _RealLike, mod: None = None) -> "mpfr": ...
     # No implementation signature in stubs
-
     # __rpow__ (Stub does not include 'mod', add to allowlist if checker complains)
     @overload
     def __rpow__(self, other: Union["mpc", complex]) -> "mpc": ...
     @overload
     def __rpow__(self, other: _RealLike) -> "mpfr": ...
     # No implementation signature in stubs
-
     # --- Unary and Other ---
     def __neg__(self) -> "mpfr": ...
     def __pos__(self) -> "mpfr": ...
@@ -696,7 +686,6 @@ class xmpz:
     @overload
     def __pow__(self, other: _IntLike, mod: _IntLike) -> "mpz": ...
     # No implementation signature in stubs
-
     # __rpow__ (Stub does not include 'mod', add to allowlist if checker complains)
     @overload
     def __rpow__(self, other: Union["mpc", complex]) -> "mpc": ...
@@ -704,7 +693,6 @@ class xmpz:
     def __rpow__(self, other: Union["mpfr", float, "mpq"]) -> "mpfr": ...  # type: ignore[misc] # Acceptable overlap
     # Removed redundant int overload
     # No implementation signature in stubs
-
     # --- Arithmetic (In-place - Modify self, return self) ---
     def __iadd__(self, other: _IntLike) -> "xmpz": ...  # type: ignore[misc] # Intentional signature difference
     def __isub__(self, other: _IntLike) -> "xmpz": ...  # type: ignore[misc] # Intentional signature difference
@@ -1241,6 +1229,7 @@ def sech(x: _RealLike, /) -> "mpfr": ...
 def sin_cos(x: _RealLike, /) -> Tuple["mpfr", "mpfr"]: ...
 @overload
 def sin_cos(x: "mpc", /) -> Tuple["mpc", "mpc"]: ...
+
 # No implementation signature in stubs
 def sinh_cosh(x: _RealLike, /) -> Tuple["mpfr", "mpfr"]: ...
 def y0(x: _RealLike, /) -> "mpfr": ...
@@ -1255,6 +1244,7 @@ def ieee(size: int, subnormalize: bool = True, /) -> context: ...
 def local_context(**kwargs: Any) -> context: ...
 @overload
 def local_context(ctx: context, /, **kwargs: Any) -> context: ...
+
 # No implementation signature in stubs
 def set_context(ctx: context, /) -> None: ...
 def get_context() -> context: ...
