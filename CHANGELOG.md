@@ -1,3 +1,27 @@
+<a id="2.2.1.5"></a>
+# [2.2.1.5](https://github.com/DavidOsipov/gmpy2-stubs/releases/tag/2.2.1.5) - 2025-04-09
+
+### Major Changes:
+1. **Workflow Enhancements**:
+   - Updated the Python version matrix to include Python 3.13 in `.github/workflows/python-tests.yml`.
+
+2. **Type Stub Improvements**:
+   - Added new type definitions and decorators such as `@final` for several classes.
+   - Refined overloads and added positional-only markers for various methods to improve type checking accuracy.
+   - Introduced new dunder methods and enhanced the `mpz`, `mpq`, `mpfr`, and `mpc` classes with more specific type hints and refined method signatures.
+   - Added `allowlist.txt` for runtime signature mismatches and undocumented/internal symbols.
+   - Updated the `pyproject.toml` version to `2.2.1.5`.
+
+### Other Notable Updates:
+- Added changelog entries detailing improvements and merged pull requests.
+- Included new utility functions and enhanced existing ones with better type hints and overloads.
+- Improved documentation and added more comprehensive type hints for various functions and classes.
+
+**Full Changelog**: https://github.com/DavidOsipov/gmpy2-stubs/compare/2.2.1.4...2.2.1.5
+
+[Changes][2.2.1.5]
+
+
 <a id="2.2.1.4"></a>
 # [2.2.1.4](https://github.com/DavidOsipov/gmpy2-stubs/releases/tag/2.2.1.4) - 2025-04-08
 
@@ -135,6 +159,7 @@ Initial release for gmpy2 version 2.2.1
 [Changes][2.2.1.0]
 
 
+[2.2.1.5]: https://github.com/DavidOsipov/gmpy2-stubs/compare/2.2.1.4...2.2.1.5
 [2.2.1.4]: https://github.com/DavidOsipov/gmpy2-stubs/compare/2.2.1.3...2.2.1.4
 [2.2.1.3]: https://github.com/DavidOsipov/gmpy2-stubs/compare/2.2.1.2...2.2.1.3
 [2.2.1.2]: https://github.com/DavidOsipov/gmpy2-stubs/compare/2.2.1.1...2.2.1.2
