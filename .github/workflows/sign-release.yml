@@ -12,8 +12,12 @@ on:
 permissions: read-all
 
 jobs:
+  verify-tests:
+    name: Run tests workflow
+    uses: DavidOsipov/gmpy2-stubs/.github/workflows/python-tests.yml@main
   sign:
     runs-on: ubuntu-latest
+    needs: [verify-tests]
     # Override with specific required permissions for this job
     permissions:
       contents: write  # Needed to upload release artifacts

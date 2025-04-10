@@ -18,7 +18,7 @@ permissions:
 jobs:
   verify-tests:
     name: Run tests workflow
-    uses: ./.github/workflows/python-tests.yml
+    uses: DavidOsipov/gmpy2-stubs/.github/workflows/python-tests.yml@main
 
   generate-changelog:
     name: Generate Changelog
