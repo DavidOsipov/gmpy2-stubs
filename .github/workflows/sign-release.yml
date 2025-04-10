@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 David Osipov <personal@david-osipov.vision>
+#
+# SPDX-License-Identifier: MIT
+# .github/workflows/sign-release.yml
 name: Sign Release Artifacts
 
 on:

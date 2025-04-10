@@ -1,6 +1,8 @@
 # ///
 # pyright: reportDeprecated=false, reportInvalidTypeForm=false
-
+# SPDX-FileCopyrightText: 2025 David Osipov <personal@david-osipov.vision>
+#
+# SPDX-License-Identifier: MIT
 """
 Type stubs for gmpy2 - GNU Multiple Precision Arithmetic Library interface (version 2.2.1)
 

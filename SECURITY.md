@@ -4,10 +4,10 @@
 
 This `gmpy2-stubs` package provides type hints for `gmpy2` version 2.2.1.  Only the latest version of the stubs corresponding to a supported `gmpy2` version will receive updates.  Since this package *only* contains type stubs and no runtime code, security updates are primarily focused on ensuring the accuracy and completeness of the type hints.
 
-| gmpy2 Version | Stub Version  | Supported          |
-|---------------|---------------|------------------|
-| 2.2.1         | 2.2.1.x       | :white_check_mark: |
-| < 2.2.1       | N/A         | :x:                |
+| gmpy2 Version | Stub Version | Supported          |
+| ------------- | ------------ | ------------------ |
+| 2.2.1         | 2.2.1.x      | :white_check_mark: |
+| < 2.2.1       | N/A          | :x:                |
 
 *Note:*  The stub version follows PEP 484, where the `x` in `2.2.1.x` is incremented for updates to the stubs themselves (e.g., fixing a type error, adding a missing function signature).
 
