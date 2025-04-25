@@ -71,17 +71,11 @@ warn_unused_configs = true
 show_error_codes = true
 ignore_missing_imports = true # Needed because gmpy2 is a C extension
 
-
 [tool.stubtest]
 ignore_missing_stub_modules = ["gmpy2.gmpy2"]
 
-
 [tool.pyright]
 pythonVersion = "3.8"
-reportMissingImports = false
-reportMissingModuleSource = false
-reportDeprecated = false
-reportUnusedImports = false
 
 [tool.black]
 line-length = 140

@@ -1,5 +1,5 @@
 # ///
-# pyright: reportDeprecated=false, reportInvalidTypeForm=false
+# pyright: reportOverlappingOverload=false
 # SPDX-FileCopyrightText: 2025 David Osipov <personal@david-osipov.vision>
 #
 # SPDX-License-Identifier: MIT
@@ -121,7 +121,7 @@ class mpz:
     # --- Arithmetic Operations (Refined Overloads) ---
     # __add__
     @overload
-    def __add__(self, other: _IntLike) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __add__(self, other: _IntLike) -> "mpz": ...
     @overload
     def __add__(self, other: _RatOnly) -> "mpq": ...
     @overload
@@ -132,7 +132,7 @@ class mpz:
     # No implementation signature in stubs
     # __radd__
     @overload
-    def __radd__(self, other: _IntLike) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __radd__(self, other: _IntLike) -> "mpz": ...
     @overload
     def __radd__(self, other: _RatOnly) -> "mpq": ...
     @overload
@@ -143,7 +143,7 @@ class mpz:
     # No implementation signature in stubs
     # __sub__
     @overload
-    def __sub__(self, other: _IntLike) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __sub__(self, other: _IntLike) -> "mpz": ...
     @overload
     def __sub__(self, other: _RatOnly) -> "mpq": ...
     @overload
@@ -154,7 +154,7 @@ class mpz:
     # No implementation signature in stubs
     # __rsub__
     @overload
-    def __rsub__(self, other: _IntLike) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __rsub__(self, other: _IntLike) -> "mpz": ...
     @overload
     def __rsub__(self, other: _RatOnly) -> "mpq": ...
     @overload
@@ -165,7 +165,7 @@ class mpz:
     # No implementation signature in stubs
     # __mul__
     @overload
-    def __mul__(self, other: _IntLike) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __mul__(self, other: _IntLike) -> "mpz": ...
     @overload
     def __mul__(self, other: _RatOnly) -> "mpq": ...
     @overload
@@ -176,7 +176,7 @@ class mpz:
     # No implementation signature in stubs
     # __rmul__
     @overload
-    def __rmul__(self, other: _IntLike) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __rmul__(self, other: _IntLike) -> "mpz": ...
     @overload
     def __rmul__(self, other: _RatOnly) -> "mpq": ...
     @overload
@@ -191,7 +191,7 @@ class mpz:
 
     # __truediv__
     @overload
-    def __truediv__(self, other: _IntLike) -> Union["mpq", "mpfr"]: ... # type: ignore[misc] # Acceptable overlap
+    def __truediv__(self, other: _IntLike) -> Union["mpq", "mpfr"]: ...
     @overload
     def __truediv__(self, other: _RatOnly) -> "mpq": ...
     @overload
@@ -202,7 +202,7 @@ class mpz:
     # No implementation signature in stubs
     # __rtruediv__
     @overload
-    def __rtruediv__(self, other: _IntLike) -> Union["mpq", "mpfr"]: ... # type: ignore[misc] # Acceptable overlap
+    def __rtruediv__(self, other: _IntLike) -> Union["mpq", "mpfr"]: ...
     @overload
     def __rtruediv__(self, other: _RatOnly) -> "mpq": ...
     @overload
@@ -221,7 +221,7 @@ class mpz:
     @overload
     def __pow__(self, other: _IntLike, mod: _IntLike) -> "mpz": ...
     @overload
-    def __pow__(self, other: _IntLike, mod: None = None) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __pow__(self, other: _IntLike, mod: None = None) -> "mpz": ...
     @overload
     def __pow__(self, other: Union[_RatOnly, _RealOnly], mod: None = None) -> "mpfr": ...
     @overload
@@ -230,11 +230,14 @@ class mpz:
     # No implementation signature in stubs
     # __rpow__ (Stub does not include 'mod', add to allowlist if checker complains)
     @overload
-    def __rpow__(self, other: _IntLike) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __rpow__(self, other: _IntLike) -> "mpz": ...
     @overload
-    def __rpow__(self, other: Union[_RatOnly, _RealOnly]) -> "mpfr": ...
+    def __rpow__(self, other: _RatOnly) -> "mpq": ...
+    @overload
+    def __rpow__(self, other: _RealOnly) -> "mpfr": ...
     @overload
     def __rpow__(self, other: _ComplexOnly) -> "mpc": ...
+
     # No implementation signature in stubs
     # --- Bitwise and Unary ---
     def __lshift__(self, other: _IntLike) -> "mpz": ...
@@ -318,7 +321,7 @@ class mpq:
     # --- Arithmetic Operations (Refined Overloads) ---
     # __add__
     @overload
-    def __add__(self, other: _RatLike) -> "mpq": ... # type: ignore[misc] # Acceptable overlap
+    def __add__(self, other: _RatLike) -> "mpq": ...
     @overload
     def __add__(self, other: _RealOnly) -> "mpfr": ...
     @overload
@@ -326,7 +329,7 @@ class mpq:
     # No implementation signature in stubs
     # __radd__
     @overload
-    def __radd__(self, other: _RatLike) -> "mpq": ... # type: ignore[misc] # Acceptable overlap
+    def __radd__(self, other: _RatLike) -> "mpq": ...
     @overload
     def __radd__(self, other: _RealOnly) -> "mpfr": ...
     @overload
@@ -334,7 +337,7 @@ class mpq:
     # No implementation signature in stubs
     # __sub__
     @overload
-    def __sub__(self, other: _RatLike) -> "mpq": ... # type: ignore[misc] # Acceptable overlap
+    def __sub__(self, other: _RatLike) -> "mpq": ...
     @overload
     def __sub__(self, other: _RealOnly) -> "mpfr": ...
     @overload
@@ -342,7 +345,7 @@ class mpq:
     # No implementation signature in stubs
     # __rsub__
     @overload
-    def __rsub__(self, other: _RatLike) -> "mpq": ... # type: ignore[misc] # Acceptable overlap
+    def __rsub__(self, other: _RatLike) -> "mpq": ...
     @overload
     def __rsub__(self, other: _RealOnly) -> "mpfr": ...
     @overload
@@ -350,7 +353,7 @@ class mpq:
     # No implementation signature in stubs
     # __mul__
     @overload
-    def __mul__(self, other: _RatLike) -> "mpq": ... # type: ignore[misc] # Acceptable overlap
+    def __mul__(self, other: _RatLike) -> "mpq": ...
     @overload
     def __mul__(self, other: _RealOnly) -> "mpfr": ...
     @overload
@@ -358,7 +361,7 @@ class mpq:
     # No implementation signature in stubs
     # __rmul__
     @overload
-    def __rmul__(self, other: _RatLike) -> "mpq": ... # type: ignore[misc] # Acceptable overlap
+    def __rmul__(self, other: _RatLike) -> "mpq": ...
     @overload
     def __rmul__(self, other: _RealOnly) -> "mpfr": ...
     @overload
@@ -366,7 +369,7 @@ class mpq:
     # No implementation signature in stubs
     # __truediv__
     @overload
-    def __truediv__(self, other: _RatLike) -> "mpq": ... # type: ignore[misc] # Acceptable overlap
+    def __truediv__(self, other: _RatLike) -> "mpq": ...
     @overload
     def __truediv__(self, other: _RealOnly) -> "mpfr": ...
     @overload
@@ -374,7 +377,7 @@ class mpq:
     # No implementation signature in stubs
     # __rtruediv__
     @overload
-    def __rtruediv__(self, other: _RatLike) -> "mpq": ... # type: ignore[misc] # Acceptable overlap
+    def __rtruediv__(self, other: _RatLike) -> "mpq": ...
     @overload
     def __rtruediv__(self, other: _RealOnly) -> "mpfr": ...
     @overload
@@ -382,7 +385,7 @@ class mpq:
     # No implementation signature in stubs
     # __pow__
     @overload
-    def __pow__(self, other: _IntLike, mod: None = None) -> "mpq": ... # type: ignore[misc] # Acceptable overlap
+    def __pow__(self, other: _IntLike, mod: None = None) -> "mpq": ...
     @overload
     def __pow__(self, other: Union[_RatOnly, _RealOnly], mod: None = None) -> "mpfr": ...
     @overload
@@ -390,7 +393,7 @@ class mpq:
     # No implementation signature in stubs
     # __rpow__ (Stub does not include 'mod', add to allowlist if checker complains)
     @overload
-    def __rpow__(self, other: _IntLike) -> "mpfr": ... # type: ignore[misc] # Acceptable overlap
+    def __rpow__(self, other: _IntLike) -> "mpfr": ...
     @overload
     def __rpow__(self, other: _RealOnly) -> "mpfr": ...
     @overload
@@ -446,61 +449,61 @@ class mpfr:
     # --- Arithmetic Operations (Refined Overloads) ---
     # __add__
     @overload
-    def __add__(self, other: _RealLike) -> "mpfr": ... # type: ignore[misc] # Acceptable overlap
+    def __add__(self, other: _RealLike) -> "mpfr": ...
     @overload
     def __add__(self, other: _ComplexOnly) -> "mpc": ...
     # No implementation signature in stubs
     # __radd__
     @overload
-    def __radd__(self, other: _RealLike) -> "mpfr": ... # type: ignore[misc] # Acceptable overlap
+    def __radd__(self, other: _RealLike) -> "mpfr": ...
     @overload
     def __radd__(self, other: _ComplexOnly) -> "mpc": ...
     # No implementation signature in stubs
     # __sub__
     @overload
-    def __sub__(self, other: _RealLike) -> "mpfr": ... # type: ignore[misc] # Acceptable overlap
+    def __sub__(self, other: _RealLike) -> "mpfr": ...
     @overload
     def __sub__(self, other: _ComplexOnly) -> "mpc": ...
     # No implementation signature in stubs
     # __rsub__
     @overload
-    def __rsub__(self, other: _RealLike) -> "mpfr": ... # type: ignore[misc] # Acceptable overlap
+    def __rsub__(self, other: _RealLike) -> "mpfr": ...
     @overload
     def __rsub__(self, other: _ComplexOnly) -> "mpc": ...
     # No implementation signature in stubs
     # __mul__
     @overload
-    def __mul__(self, other: _RealLike) -> "mpfr": ... # type: ignore[misc] # Acceptable overlap
+    def __mul__(self, other: _RealLike) -> "mpfr": ...
     @overload
     def __mul__(self, other: _ComplexOnly) -> "mpc": ...
     # No implementation signature in stubs
     # __rmul__
     @overload
-    def __rmul__(self, other: _RealLike) -> "mpfr": ... # type: ignore[misc] # Acceptable overlap
+    def __rmul__(self, other: _RealLike) -> "mpfr": ...
     @overload
     def __rmul__(self, other: _ComplexOnly) -> "mpc": ...
     # No implementation signature in stubs
     # __truediv__
     @overload
-    def __truediv__(self, other: _RealLike) -> "mpfr": ... # type: ignore[misc] # Acceptable overlap
+    def __truediv__(self, other: _RealLike) -> "mpfr": ...
     @overload
     def __truediv__(self, other: _ComplexOnly) -> "mpc": ...
     # No implementation signature in stubs
     # __rtruediv__
     @overload
-    def __rtruediv__(self, other: _RealLike) -> "mpfr": ... # type: ignore[misc] # Acceptable overlap
+    def __rtruediv__(self, other: _RealLike) -> "mpfr": ...
     @overload
     def __rtruediv__(self, other: _ComplexOnly) -> "mpc": ...
     # No implementation signature in stubs
     # __pow__
     @overload
-    def __pow__(self, other: _RealLike, mod: None = None) -> "mpfr": ... # type: ignore[misc] # Acceptable overlap
+    def __pow__(self, other: _RealLike, mod: None = None) -> "mpfr": ...
     @overload
     def __pow__(self, other: _ComplexOnly, mod: None = None) -> "mpc": ...
     # No implementation signature in stubs
     # __rpow__ (Stub does not include 'mod', add to allowlist if checker complains)
     @overload
-    def __rpow__(self, other: _RealLike) -> "mpfr": ... # type: ignore[misc] # Acceptable overlap
+    def __rpow__(self, other: _RealLike) -> "mpfr": ...
     @overload
     def __rpow__(self, other: _ComplexOnly) -> "mpc": ...
     # No implementation signature in stubs
@@ -626,56 +629,70 @@ class xmpz:
     def __ge__(self, other: _RealLike) -> bool: ...
 
     # --- Arithmetic (Standard - Return immutable, Refined Overloads) ---
+
+        # --- Arithmetic Operations (Refined Overloads) ---
     # __add__
     @overload
-    def __add__(self, other: _IntLike) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __add__(self, other: _IntLike) -> "mpz": ...
     @overload
-    def __add__(self, other: Union[_RatOnly, _RealOnly]) -> "mpfr": ...
+    def __add__(self, other: _RatOnly) -> "mpq": ...
+    @overload
+    def __add__(self, other: _RealOnly) -> "mpfr": ...
     @overload
     def __add__(self, other: _ComplexOnly) -> "mpc": ...
 
     # No implementation signature in stubs
     # __radd__
     @overload
-    def __radd__(self, other: _IntLike) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __radd__(self, other: _IntLike) -> "mpz": ...
     @overload
-    def __radd__(self, other: Union[_RatOnly, _RealOnly]) -> "mpfr": ...
+    def __radd__(self, other: _RatOnly) -> "mpq": ...
+    @overload
+    def __radd__(self, other: _RealOnly) -> "mpfr": ...
     @overload
     def __radd__(self, other: _ComplexOnly) -> "mpc": ...
 
     # No implementation signature in stubs
     # __sub__
     @overload
-    def __sub__(self, other: _IntLike) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __sub__(self, other: _IntLike) -> "mpz": ...
     @overload
-    def __sub__(self, other: Union[_RatOnly, _RealOnly]) -> "mpfr": ...
+    def __sub__(self, other: _RatOnly) -> "mpq": ...
+    @overload
+    def __sub__(self, other: _RealOnly) -> "mpfr": ...
     @overload
     def __sub__(self, other: _ComplexOnly) -> "mpc": ...
 
     # No implementation signature in stubs
     # __rsub__
     @overload
-    def __rsub__(self, other: _IntLike) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __rsub__(self, other: _IntLike) -> "mpz": ...
     @overload
-    def __rsub__(self, other: Union[_RatOnly, _RealOnly]) -> "mpfr": ...
+    def __rsub__(self, other: _RatOnly) -> "mpq": ...
+    @overload
+    def __rsub__(self, other: _RealOnly) -> "mpfr": ...
     @overload
     def __rsub__(self, other: _ComplexOnly) -> "mpc": ...
-
+    
     # No implementation signature in stubs
     # __mul__
     @overload
-    def __mul__(self, other: _IntLike) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __mul__(self, other: _IntLike) -> "mpz": ...
     @overload
-    def __mul__(self, other: Union[_RatOnly, _RealOnly]) -> "mpfr": ...
+    def __mul__(self, other: _RatOnly) -> "mpq": ...
+    @overload
+    def __mul__(self, other: _RealOnly) -> "mpfr": ...
     @overload
     def __mul__(self, other: _ComplexOnly) -> "mpc": ...
-
+    
     # No implementation signature in stubs
     # __rmul__
     @overload
-    def __rmul__(self, other: _IntLike) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __rmul__(self, other: _IntLike) -> "mpz": ...
     @overload
-    def __rmul__(self, other: Union[_RatOnly, _RealOnly]) -> "mpfr": ...
+    def __rmul__(self, other: _RatOnly) -> "mpq": ...
+    @overload
+    def __rmul__(self, other: _RealOnly) -> "mpfr": ...
     @overload
     def __rmul__(self, other: _ComplexOnly) -> "mpc": ...
 
@@ -686,18 +703,22 @@ class xmpz:
 
     # __truediv__
     @overload
-    def __truediv__(self, other: _IntLike) -> Union["mpq", "mpfr"]: ... # type: ignore[misc] # Acceptable overlap
+    def __truediv__(self, other: _IntLike) -> Union["mpq", "mpfr"]: ...
     @overload
-    def __truediv__(self, other: Union[_RatOnly, _RealOnly]) -> "mpfr": ...
+    def __truediv__(self, other: _RatOnly) -> "mpq": ...
+    @overload
+    def __truediv__(self, other: _RealOnly) -> "mpfr": ...
     @overload
     def __truediv__(self, other: _ComplexOnly) -> "mpc": ...
 
     # No implementation signature in stubs
     # __rtruediv__
     @overload
-    def __rtruediv__(self, other: _IntLike) -> Union["mpq", "mpfr"]: ... # type: ignore[misc] # Acceptable overlap
+    def __rtruediv__(self, other: _IntLike) -> Union["mpq", "mpfr"]: ...
     @overload
-    def __rtruediv__(self, other: Union[_RatOnly, _RealOnly]) -> "mpfr": ...
+    def __rtruediv__(self, other: _RatOnly) -> "mpq": ...
+    @overload
+    def __rtruediv__(self, other: _RealOnly) -> "mpfr": ...
     @overload
     def __rtruediv__(self, other: _ComplexOnly) -> "mpc": ...
 
@@ -710,9 +731,9 @@ class xmpz:
 
     # __pow__
     @overload
-    def __pow__(self, other: _IntLike, mod: _IntLike) -> "mpz": ... 
+    def __pow__(self, other: _IntLike, mod: _IntLike) -> "mpz": ...
     @overload
-    def __pow__(self, other: _IntLike, mod: None = None) -> "mpz": ... # type: ignore[misc] # Acceptable overlap
+    def __pow__(self, other: _IntLike, mod: None = None) -> "mpz": ...
     @overload
     def __pow__(self, other: Union[_RatOnly, _RealOnly], mod: None = None) -> "mpfr": ...
     @overload
@@ -721,9 +742,11 @@ class xmpz:
     # No implementation signature in stubs
     # __rpow__ (Stub does not include 'mod', add to allowlist if checker complains)
     @overload
-    def __rpow__(self, other: _IntLike) -> "mpz": ...  # type: ignore[misc] # Acceptable overlap
+    def __rpow__(self, other: _IntLike) -> "mpz": ...
     @overload
-    def __rpow__(self, other: Union[_RatOnly, _RealOnly]) -> "mpfr": ...
+    def __rpow__(self, other: _RatOnly) -> "mpq": ...
+    @overload
+    def __rpow__(self, other: _RealOnly) -> "mpfr": ...
     @overload
     def __rpow__(self, other: _ComplexOnly) -> "mpc": ...
 
