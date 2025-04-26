@@ -29,7 +29,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@6ed2c67c8abe7646815dbd50364eea862d396fd9
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.13'
 
@@ -39,6 +39,6 @@ jobs:
           python -m pip install .
 
       - name: Sign Script with Sigstore
-        uses: sigstore/gh-action-sigstore-python@300d3393a8effd58cc9e99f701c7c7238fb517d2
+        uses: sigstore/gh-action-sigstore-python@d6cc438be6b87cf934c2b719a3e9e2e339035777
         with:
           release-signing-artifacts: true
