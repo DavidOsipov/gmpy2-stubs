@@ -4,6 +4,7 @@
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/gmpy2-stubs)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/DavidOsipov/gmpy2-stubs/main)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/DavidOsipov/gmpy2-stubs)
 
 Type stubs for the [gmpy2](https://pypi.org/project/gmpy2/) library (version 2.2.1).
 
