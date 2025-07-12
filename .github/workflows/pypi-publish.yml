@@ -29,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@09d2acae674a48949e3602304ab46fd20ae0c42f
       - name: Generate changelog
-        uses: rhysd/changelog-from-release/action@589c79eb291056dc380aa43ccfb1f45eebf8c4c3
+        uses: rhysd/changelog-from-release/action@52d937b0fb327a34339178db5413662c35213abf
         with:
           file: CHANGELOG.md
           github_token: ${{ secrets.RELEASE_NOTES_TOKEN }}
