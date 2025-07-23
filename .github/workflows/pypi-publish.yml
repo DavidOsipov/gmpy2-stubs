@@ -27,7 +27,7 @@ jobs:
     permissions:
       contents: write  # Need write permission to update CHANGELOG.md
     steps:
-      - uses: actions/checkout@09d2acae674a48949e3602304ab46fd20ae0c42f
+      - uses: actions/checkout@8edcb1bdb4e267140fa742c62e395cd74f332709
       - name: Generate changelog
         uses: rhysd/changelog-from-release/action@589c79eb291056dc380aa43ccfb1f45eebf8c4c3
         with:
@@ -44,7 +44,7 @@ jobs:
     permissions:
       id-token: write
     steps:
-    - uses: actions/checkout@09d2acae674a48949e3602304ab46fd20ae0c42f
+    - uses: actions/checkout@8edcb1bdb4e267140fa742c62e395cd74f332709
     - name: Set up Python
       uses: actions/setup-python@5db1cf9a59fb97c40a68accab29236f0da7e94db
       with:
