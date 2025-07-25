@@ -31,7 +31,7 @@ jobs:
       
     # 2. Set up the specific Python version
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@5db1cf9a59fb97c40a68accab29236f0da7e94db
+      uses: actions/setup-python@36da51d563b70a972897150555bb025096d65565
       with:
         python-version: ${{ matrix.python-version }}
         cache: 'pip' # Cache pip dependencies
