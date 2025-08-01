@@ -46,7 +46,7 @@ jobs:
     steps:
     - uses: actions/checkout@8edcb1bdb4e267140fa742c62e395cd74f332709
     - name: Set up Python
-      uses: actions/setup-python@5db1cf9a59fb97c40a68accab29236f0da7e94db
+      uses: actions/setup-python@36da51d563b70a972897150555bb025096d65565
       with:
         python-version: "3.13"
     - name: Install dependencies
