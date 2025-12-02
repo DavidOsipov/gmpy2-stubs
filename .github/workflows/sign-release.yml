@@ -24,7 +24,7 @@ jobs:
       id-token: write  # Needed for Sigstore authentication
     
     steps:
-      - uses: actions/checkout@8edcb1bdb4e267140fa742c62e395cd74f332709
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
         with:
           persist-credentials: false
 
