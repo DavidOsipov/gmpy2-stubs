@@ -27,7 +27,7 @@ jobs:
         python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
     steps:
     # 1. Checkout your stub repository code
-    - uses: actions/checkout@8edcb1bdb4e267140fa742c62e395cd74f332709
+    - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
       
     # 2. Set up the specific Python version
     - name: Set up Python ${{ matrix.python-version }}
