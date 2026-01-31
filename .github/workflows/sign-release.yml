@@ -39,6 +39,6 @@ jobs:
           python -m pip install .
 
       - name: Sign Script with Sigstore
-        uses: sigstore/gh-action-sigstore-python@15ce42889ff1d65509841d7c63480f64affe3a64
+        uses: sigstore/gh-action-sigstore-python@34c9e15d774950fd20b66b34f372399daa2ad83a
         with:
           release-signing-artifacts: true
