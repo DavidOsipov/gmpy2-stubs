@@ -57,7 +57,7 @@ jobs:
       run: |
         hatch build
     - name: Publish distribution 📦 to PyPI
-      uses: pypa/gh-action-pypi-publish@d417ba7e7683fa9104c42abe611c1f2c93c0727d
+      uses: pypa/gh-action-pypi-publish@e2bab26859796ee5c3bf97b8f394ce1e6570e906
       with:
         print-hash: true
         verbose: true
