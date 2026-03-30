@@ -1,41 +1,34 @@
-# SPDX-FileCopyrightText: 2025 David Osipov <personal@david-osipov.vision>
-#
-# SPDX-License-Identifier: MIT
-[build-system]
-requires = ["setuptools>=61.0", "wheel>=0.37.0"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "gmpy2-stubs"
 version = "2.2.1.5"
 description = "Type stubs (PEP 561) for gmpy2 2.2.1: GMP, MPFR, and MPC support."
 readme = "README.md"
-requires-python = ">=3.8"
-keywords = [
-  'gmpy2',
-  'stubs',
-  'type hints',
-  'typing',
-  'mypy',
-  'pyright',
-  'static analysis',
-]
+requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [{ name = "David Osipov", email = "personal@david-osipov.vision" }]
 maintainers = [
   { name = "David Osipov", email = "personal@david-osipov.vision" },
+]
+keywords = [
+  "gmpy2",
+  "mypy",
+  "pyright",
+  "static analysis",
+  "stubs",
+  "type hints",
+  "typing",
 ]
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.13",
   "Topic :: Software Development :: Libraries :: Python Modules",
   "Typing :: Stubs Only",
 ]
@@ -43,19 +36,48 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/DavidOsipov/gmpy2-stubs"
-Issues = "https://github.com/DavidOsipov/gmpy2-stubs/issues"
-Source = "https://github.com/DavidOsipov/gmpy2-stubs"
 Changelog = "https://github.com/DavidOsipov/gmpy2-stubs/blob/main/CHANGELOG.md"
-"Security Policy" = "https://github.com/DavidOsipov/gmpy2-stubs/blob/main/SECURITY.md"
-"Personal Website" = "https://david-osipov.vision"
-"LinkedIn" = "https://www.linkedin.com/in/david-osipov"
 "GitHub Profile" = "https://github.com/DavidOsipov"
+Homepage = "https://github.com/DavidOsipov/gmpy2-stubs"
 "ISNI" = "https://isni.org/isni/000000051802960X"
+Issues = "https://github.com/DavidOsipov/gmpy2-stubs/issues"
+"LinkedIn" = "https://www.linkedin.com/in/david-osipov"
 "ORCID" = "https://orcid.org/0009-0005-2713-9242"
-"Telegram" = "https://telegram.me/david_osipov"
+"Personal Website" = "https://david-osipov.vision"
+"Security Policy" = "https://github.com/DavidOsipov/gmpy2-stubs/blob/main/SECURITY.md"
 "Signal" = "https://signal.me/#eu/d68l1UjrWlGVRzbfkVM1bvQMNqCqiae9GM86P_af8ZK2o5E5YSNKbL4MyM9y-2WH"
+Source = "https://github.com/DavidOsipov/gmpy2-stubs"
+"Telegram" = "https://telegram.me/david_osipov"
 
+# SPDX-FileCopyrightText: 2025 David Osipov <personal@david-osipov.vision>
+#
+# SPDX-License-Identifier: MIT
+[build-system]
+requires = ["setuptools>=61.0", "wheel>=0.37.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 140
+target-version = ["py39", "py310", "py311", "py312", "py313"]
+
+[tool.mypy]
+# Optional: Configure mypy for checking the *stubs* themselves.
+files = ["src/gmpy2/*.pyi"]
+strict = true
+warn_unused_configs = true
+ignore_missing_imports = true  # Needed because gmpy2 is a C extension
+
+[tool.pyright]
+pythonVersion = "3.9"
+
+[tool.ruff]
+# Always generate Python 3.9-compatible code.
+target-version = "py39"
+line-length = 140
+
+[tool.ruff.lint]
+fixable = ["ALL"]
+select = ["E", "F", "I", "B", "C4"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -63,33 +85,9 @@ where = ["src"]
 [tool.setuptools.package-data]
 "gmpy2" = ["*.pyi", "py.typed"]
 
-[tool.mypy]
-# Optional: Configure mypy for checking the *stubs* themselves.
-files = ["src/gmpy2/*.pyi"]
-strict = true
-warn_unused_configs = true
-show_error_codes = true
-ignore_missing_imports = true # Needed because gmpy2 is a C extension
-
 [tool.stubtest]
 ignore_missing_stub_modules = ["gmpy2.gmpy2"]
 
-[tool.pyright]
-pythonVersion = "3.8"
-
-[tool.black]
-line-length = 140
-target-version = ["py38", "py39", "py310", "py311", "py312"]
-
-[tool.ruff]
-# Always generate Python 3.8-compatible code.
-target-version = "py38"
-line-length = 140
-select = ["E", "F", "I", "B", "C4"]
-
-[tool.ruff.lint]
-fixable = ["ALL"]
-
 [tool.typing]
 # Some static type checking tools use this section
-use_pep563 = true # Using PEP 563 postponed annotation style
+use_pep563 = true  # Using PEP 563 postponed annotation style
